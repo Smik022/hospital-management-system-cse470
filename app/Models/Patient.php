@@ -19,4 +19,9 @@ class Patient extends Model
         'medical_history',
         'profile_image', // Add 'profile_image' if you're storing image paths
     ];
+    public function prescriptions()
+{
+    return $this->hasMany(Prescription::class);
+}
+
 }

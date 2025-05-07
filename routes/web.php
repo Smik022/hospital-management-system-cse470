@@ -9,6 +9,14 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MedicalRecordController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PrescriptionController;
+
+Route::prefix('prescriptions')->name('prescriptions.')->group(function () {
+    Route::get('/', [PrescriptionController::class, 'index'])->name('index');
+    Route::get('/create', [PrescriptionController::class, 'create'])->name('create');
+    Route::post('/store', [PrescriptionController::class, 'store'])->name('store');
+    Route::get('/list', [PrescriptionController::class, 'list'])->name('list'); // 
+});
 
 /*
 |--------------------------------------------------------------------------

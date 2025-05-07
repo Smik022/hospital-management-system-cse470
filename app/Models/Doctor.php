@@ -15,4 +15,9 @@ class Doctor extends Model
         'contact_number',
         'availability',
     ];
+    public function prescriptions()
+{
+    return $this->hasMany(Prescription::class);
+}
+
 }

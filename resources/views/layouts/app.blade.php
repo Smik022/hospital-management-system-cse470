@@ -35,21 +35,21 @@
 						<a class="nav-link" href="{{ route('appointments.create') }}">Schedule Appointment</a>
 					</li>
 					<li class="nav-item">
+						<a class="nav-link" href="{{ route('prescriptions.create') }}">Issue a Prescription</a>
+					</li>
+					<li class="nav-item">
 						<a class="nav-link" href="{{ route('contact.index') }}">Contact</a>
 					</li>
 				</ul>				
 				@if (!Auth::check())
-				<a class="btn btn-outline-primary me-2" href="{{ route('login.form') }}" type="submit">Login</a>
-			    @else
-				<a class="btn btn-outline-primary me-2" href="{{ route('profile') }}" type="submit">Account</a>
+					<a class="btn btn-outline-primary me-2" href="{{ route('login.form') }}" type="submit">Login</a>
+				@else
+					<a class="btn btn-outline-primary me-2" href="{{ route('profile') }}" type="submit">Account</a>
 				@endif
-				
 			</div>
 		</div>
 	</nav>
 </header>
-
-
 
 @yield('main')
 
@@ -58,7 +58,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title pb-0" id="exampleModalLabel">Change Profile Picture</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="moda" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form>
@@ -70,7 +70,6 @@
                 <button type="submit" class="btn btn-primary mx-3">Update</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
-            
         </form>
       </div>
     </div>
