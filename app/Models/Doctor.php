@@ -9,15 +9,11 @@ class Doctor extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'name',
-        'specialization',
-        'contact_number',
-        'availability',
-    ];
-    public function prescriptions()
-{
-    return $this->hasMany(Prescription::class);
-}
+    protected $fillable = ['name', 'specialization', 'contact_number', 'availability'];
 
+    // Define the relationship to the Department model
+    public function department()
+    {
+        return $this->belongsTo(Department::class);
+    }
 }

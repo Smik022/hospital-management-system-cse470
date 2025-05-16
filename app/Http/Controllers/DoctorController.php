@@ -63,5 +63,10 @@ class DoctorController extends Controller
 
         return redirect()->route('doctors.list')->with('success', 'Doctor deleted successfully.');
     }
+    public function exploreDepartments()
+{
+    $departments = Doctor::all()->groupBy('specialization');
+    return view('departments.index', compact('departments'));
+}
 }
 

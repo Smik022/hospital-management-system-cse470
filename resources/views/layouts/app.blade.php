@@ -32,13 +32,21 @@
 						<a class="nav-link" href="{{ route('doctors.create') }}">Add Doctor</a>
 					</li>
 					<li class="nav-item">
+                        <a class="nav-link" href="{{ route('nurses.create') }}">Add Nurse</a>
+                    </li>
+
+					<li class="nav-item">
 						<a class="nav-link" href="{{ route('appointments.create') }}">Schedule Appointment</a>
 					</li>
+					<li class="nav-item">
+                        <a class="nav-link" href="{{ route('medical_tests.create') }}">Add Medical Test</a>
+                    </li>
+
 					<li class="nav-item">
 						<a class="nav-link" href="{{ route('prescriptions.create') }}">Issue a Prescription</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="{{ route('contact.index') }}">Contact</a>
+						<a class="nav-link" href="{{ route('room_booking.create') }}">Book a Room</a>
 					</li>
 				</ul>				
 				@if (!Auth::check())
