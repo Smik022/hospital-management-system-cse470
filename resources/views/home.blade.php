@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('main')
-<section class="section-0 lazy d-flex bg-image-style dark align-items-center" data-bg="{{ asset('assets/images/banner7.png') }}">
+<section class="section-0 lazy d-flex bg-image-style dark align-items-center" data-bg="">
     <div class="container">
         <div class="row">
             <div class="col-12 col-xl-8">
