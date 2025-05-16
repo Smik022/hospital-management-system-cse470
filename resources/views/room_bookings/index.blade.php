@@ -26,6 +26,12 @@
                     <div class="card-body">
                         <h3 class="fs-4 mb-3">Room Bookings</h3>
 
+                        @if(session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -39,7 +45,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                
                                 @forelse($bookings as $index => $booking)
                                     <tr>
                                         <td>{{ $index + 1 }}</td>
@@ -52,7 +57,12 @@
                                             @if($booking->discharge_date)
                                                 <span class="badge bg-success">Discharged</span>
                                             @else
-                                                <span class="badge bg-warning">Admitted</span>
+                                                <form action="{{ route('room_bookings.discharge', $booking->id) }}" method="POST" style="display:inline;">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <button type="submit" class="btn btn-sm btn-danger">Discharge</button>
+                                                </form>
+                                                <span class="badge bg-warning ms-2">Admitted</span>
                                             @endif
                                         </td>
                                     </tr>

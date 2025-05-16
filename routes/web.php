@@ -148,4 +148,5 @@ Route::get('/room-bookings', [RoomBookingController::class, 'index'])->name('roo
 Route::get('/room-booking/create', [RoomBookingController::class, 'create'])->name('room_booking.create');
 
 
+Route::put('/room_bookings/{id}/discharge', [RoomBookingController::class, 'discharge'])->name('room_bookings.discharge');
 

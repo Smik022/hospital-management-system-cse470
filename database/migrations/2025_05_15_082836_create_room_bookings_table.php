@@ -12,13 +12,18 @@ return new class extends Migration
     public function up()
     {
         Schema::create('room_bookings', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('patient_id')->constrained()->onDelete('cascade');
-            $table->foreignId('room_id')->constrained()->onDelete('cascade');
-            $table->dateTime('admit_date');
-            $table->dateTime('discharge_date')->nullable();
-            $table->timestamps();
-        });
+    $table->id();
+
+    // Only define room_id once, and chain constrained() for foreign key:
+    $table->foreignId('room_id')->constrained('rooms')->onDelete('cascade');
+
+    $table->foreignId('patient_id')->constrained()->onDelete('cascade');
+    
+    $table->dateTime('admit_date');
+    $table->dateTime('discharge_date')->nullable();
+
+    $table->timestamps();
+});
     }
     
 

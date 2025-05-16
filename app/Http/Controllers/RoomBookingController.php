@@ -39,6 +39,19 @@ class RoomBookingController extends Controller
 
     return view('room_bookings.index', compact('bookings'));
 }
+public function discharge($id)
+{
+    $booking = RoomBooking::findOrFail($id);
 
+    if (!$booking->discharge_date) {
+        $booking->discharge_date = now();
+        $booking->save();
+
+        // Free the room
+        $booking->room->update(['is_occupied' => false]);
+    }
+
+    return redirect()->route('room_bookings.index')->with('success', 'Patient discharged successfully.');
+}
     
 }
